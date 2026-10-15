@@ -23,29 +23,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get source code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install packages
+      - name: Install dependencies
         run: npm ci
 
-      - name: Build website
+      - name: Build
         run: npm run build
 
-      - name: Configure GitHub Pages
+      - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload website
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
-      - name: Publish website
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

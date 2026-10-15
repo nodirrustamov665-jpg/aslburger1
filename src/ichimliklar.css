@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.ichimliklar {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 35px 70px;
+  background: #000 !important;
+  color: #fff;
+  overflow: hidden;
+  animation: pageIn 0.7s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ichimliklar > h1,
+.ichimliklar .title h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 35px;
+}
+
+.ichimliklar > h1::after,
+.ichimliklar .title h1::after {
+  content: "";
+  display: block;
+  width: 85px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 10px;
+  background: #ff4500;
+  box-shadow: 0 0 15px #ff4500;
+  animation: lineGlow 1.5s infinite alternate;
+}
+
+@keyframes lineGlow {
+  from {
+    width: 65px;
+    box-shadow: 0 0 5px #ff4500;
+  }
+  to {
+    width: 130px;
+    box-shadow: 0 0 20px #ff4500;
+  }
+}
+
+.ichimliklar > input {
+  display: block;
+  width: 450px;
+  max-width: 100%;
+  height: 52px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  color: #fff;
+  background: #000 !important;
+  border: 1px solid #333;
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.35s;
+}
+
+.ichimliklar > input::placeholder {
+  color: #888;
+}
+
+.ichimliklar > input:focus {
+  border-color: #ff4500;
+  box-shadow: 0 0 15px #ff450060;
+  background: #000 !important;
+}
+
+.drink-boxes {
+  width: 100%;
+  max-width: 1350px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* QORA KARTALAR */
+
+.drink-boxes > div {
+  position: relative;
+  min-width: 0;
+  padding: 12px;
+  text-align: center;
+  background: #000 !important;
+  border: 1px solid #292929;
+  border-radius: 17px;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  animation: cardEnter 0.65s both;
+}
+
+.drink-boxes > div:nth-child(1) { animation-delay: 0.05s; }
+.drink-boxes > div:nth-child(2) { animation-delay: 0.1s; }
+.drink-boxes > div:nth-child(3) { animation-delay: 0.15s; }
+.drink-boxes > div:nth-child(4) { animation-delay: 0.2s; }
+.drink-boxes > div:nth-child(5) { animation-delay: 0.25s; }
+.drink-boxes > div:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.drink-boxes > div:hover {
+  background: #000 !important;
+  transform: translateY(-8px);
+  border-color: #ff4500;
+  box-shadow:
+    0 10px 30px #000,
+    0 0 14px #ff450045,
+    inset 0 0 15px #ff450008;
+}
+
+.drink-boxes > div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    #ff450012,
+    transparent
+  );
+  pointer-events: none;
+  transition: left 0.7s ease;
+}
+
+.drink-boxes > div:hover::before {
+  left: 140%;
+}
+
+/* RASM JOYLASHGAN QORA MAYDON */
+
+.drink-boxes img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  padding: 5px;
+  margin-bottom: 13px;
+  border-radius: 12px;
+  background: #000 !important;
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.drink-boxes > div:hover img {
+  background: #000 !important;
+  transform: scale(1.07);
+  filter: drop-shadow(0 0 9px #ff450040);
+}
+
+/* NOMI */
+
+.drink-boxes h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.drink-boxes > div:hover h3 {
+  color: #ff642e;
+}
+
+/* NARX */
+
+.drink-boxes p {
+  color: #ff4500;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 13px;
+  transition: 0.3s;
+}
+
+.drink-boxes > div:hover p {
+  color: #ff8a00;
+  text-shadow: 0 0 12px #ff450050;
+}
+
+/* SAVAT TUGMASI */
+
+.drink-boxes button {
+  position: relative;
+  width: 100%;
+  min-height: 42px;
+  padding: 11px 8px;
+  border: 1px solid #ff4500;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #ff3500, #ff5900);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+.drink-boxes button:hover {
+  background: linear-gradient(100deg, #ff5900, #ff3500);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px #ff450070;
+}
+
+.drink-boxes button:active {
+  transform: scale(0.96);
+}
+
+.drink-boxes button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffffff50,
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.drink-boxes button:hover::after {
+  left: 140%;
+}
+
+/* GAZSIZ ICHIMLIKLAR */
+
+.suvlar {
+  width: 100%;
+  max-width: 1350px;
+  margin: 75px auto 0;
+  background: #000 !important;
+}
+
+.suvlar .title {
+  margin-bottom: 35px;
+  background: #000 !important;
+}
+
+.suvlar .title h1 {
+  position: static !important;
+  color: #fff;
+  font-size: 34px;
+  margin: 0;
+}
+
+.suvlar .drink-boxes {
+  background: #000 !important;
+}
+
+.suvlar .drink-boxes > div,
+.suvlar .drink-boxes > div:hover {
+  background: #000 !important;
+}
+
+.suvlar .drink-boxes img,
+.suvlar .drink-boxes > div:hover img {
+  background: #000 !important;
+}
+
+/* QIDIRUVDA TOPILMAGAN ICHIMLIK */
+
+.ichimliklar .drink-boxes:empty::after {
+  content: "Ichimlik topilmadi";
+  display: block;
+  grid-column: 1 / -1;
+  color: #888;
+  text-align: center;
+  padding: 25px;
+}
+
+/* PLANShet */
+
+@media (max-width: 950px) {
+  .drink-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ichimliklar {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+  .ichimliklar {
+    padding: 110px 12px 45px;
+  }
+
+  .ichimliklar > h1 {
+    font-size: 27px;
+  }
+
+  .ichimliklar > input {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .drink-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .drink-boxes > div {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .drink-boxes img {
+    height: 145px;
+  }
+
+  .drink-boxes h3 {
+    font-size: 15px;
+  }
+
+  .drink-boxes p {
+    font-size: 15px;
+  }
+
+  .drink-boxes button {
+    min-height: 38px;
+    font-size: 11px;
+    padding: 8px 3px;
+  }
+
+  .suvlar {
+    margin-top: 50px;
+  }
+
+  .suvlar .title h1 {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ichimliklar *,
+  .ichimliklar *::before,
+  .ichimliklar *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

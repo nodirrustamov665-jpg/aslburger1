@@ -1,0 +1,957 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homePage {
+  min-height: 100vh;
+  color: white;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at 75% 35%, #4a1b08 0%, transparent 36%),
+    radial-gradient(ellipse at 15% 90%, #291005 0%, transparent 35%),
+    #080808;
+  overflow: hidden;
+  position: relative;
+}
+
+/* HEADER */
+
+.homeHeader {
+  width: 96%;
+  min-height: 82px;
+  margin: 12px auto 0;
+  padding: 14px 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  background: rgba(25, 25, 25, 0.96);
+  border: 1px solid #ffffff12;
+  border-radius: 20px;
+  position: relative;
+  z-index: 10;
+  animation: headerShow 0.7s ease both;
+}
+
+.homeLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 27px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.homeLogo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.homeLogo:hover img {
+  transform: rotate(-12deg) scale(1.12);
+}
+
+.homeLogo b {
+  color: #ff521c;
+}
+
+.homeNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.homeNav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.homeNav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background: #ff4b12;
+  transition: width 0.3s ease;
+}
+
+.homeNav a:hover,
+.homeNav a.active {
+  color: #ff6a22;
+}
+
+.homeNav a:hover::after,
+.homeNav a.active::after {
+  width: 100%;
+}
+
+.homeCart {
+  padding: 12px 19px;
+  border: 1px solid #ff5a16;
+  border-radius: 30px;
+  background: #ff4b12;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.homeCart:hover {
+  background: #ff6a22;
+  box-shadow: 0 0 22px #ff4b1244;
+  transform: translateY(-3px);
+}
+
+/* ASOSIY QISM */
+
+.homePage main {
+  padding-top: 65px;
+}
+
+.hero {
+  width: 94%;
+  max-width: 1450px;
+  min-height: 550px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 35px 35px 35px 50px;
+  border-bottom: 1px solid #ff4b121c;
+  animation: heroEnter 0.8s ease both;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 35%,
+    #ff4b1208 60%,
+    transparent 80%
+  );
+  animation: backgroundMove 8s ease-in-out infinite alternate;
+}
+
+/* MATN */
+
+.heroText {
+  width: 47%;
+  position: relative;
+  z-index: 3;
+  animation: textEnter 0.9s ease both;
+}
+
+.smallText {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  margin-bottom: 22px;
+  border: 1px solid #ff621e55;
+  border-radius: 30px;
+  background: #ff4b1215;
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.smallText:hover {
+  background: #ff4b1230;
+  box-shadow: 0 0 25px #ff4b1222;
+  transform: translateY(-3px);
+}
+
+.smallText span {
+  font-size: 18px;
+}
+
+.heroText h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  color: #fff;
+  font-size: clamp(44px, 5.4vw, 76px);
+  line-height: 1.04;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.heroText h1 span {
+  width: fit-content;
+  padding-right: 8px;
+  color: #ff5717;
+  text-shadow: 0 5px 30px #ff4b1233;
+  transition: text-shadow 0.4s ease;
+}
+
+.heroText h1 span:hover {
+  text-shadow: 0 5px 40px #ff4b1280;
+}
+
+.heroText h2 {
+  margin-top: 20px;
+  margin-bottom: 14px;
+  font-size: clamp(20px, 2vw, 29px);
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.heroText h2:hover {
+  color: #ff6728;
+}
+
+.heroText > p {
+  max-width: 470px;
+  color: #bdbdbd;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+.heroButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 25px;
+  border-radius: 35px;
+  background: linear-gradient(110deg, #ff791c, #ff3b08);
+  box-shadow: 0 10px 30px #ff4b1233;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+.heroButton span {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.heroButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px #ff4b1255;
+  filter: brightness(1.12);
+}
+
+.heroButton:hover span {
+  transform: translateX(6px);
+}
+
+.heroButton:active {
+  transform: scale(0.97);
+}
+
+/* MIJOZLAR */
+
+.homeCustomers {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 30px;
+}
+
+.homeCustomers > span {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -10px;
+  background: #25201d;
+  border: 2px solid #ff6a23;
+  border-radius: 50%;
+  font-size: 15px;
+  transition: transform 0.3s ease;
+}
+
+.homeCustomers > span:hover {
+  transform: translateY(-5px) rotate(10deg);
+}
+
+.homeCustomers p {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 13px;
+}
+
+.homeCustomers b {
+  font-size: 13px;
+}
+
+.homeCustomers small {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* BURGER */
+
+.homeImage {
+  width: 53%;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  animation: imageEnter 1s 0.1s ease both;
+}
+
+.burgerCircle {
+  width: min(70%, 390px);
+  aspect-ratio: 1;
+  position: absolute;
+  z-index: -2;
+  border-radius: 50%;
+  background: linear-gradient(140deg, #ff8b23, #f4480c 65%, #70200b);
+  box-shadow: 0 0 100px #ff4b1230;
+  animation: circlePulse 4s ease-in-out infinite alternate;
+}
+
+.burgerRing {
+  width: min(85%, 470px);
+  aspect-ratio: 1;
+  position: absolute;
+  z-index: -1;
+  border: 1px solid #ff6a2440;
+  border-radius: 50%;
+  animation: ringRotate 18s linear infinite;
+}
+
+.homeImage img {
+  width: min(100%, 520px);
+  height: 440px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 30px 35px #000a);
+  animation: burgerFloat 4s ease-in-out infinite;
+  transition: filter 0.4s ease;
+}
+
+.homeImage img:hover {
+  filter: drop-shadow(0 25px 35px #ff4b1244);
+}
+
+.floatingFood {
+  position: absolute;
+  z-index: 3;
+  font-size: 35px;
+  pointer-events: none;
+  filter: drop-shadow(0 5px 12px #0008);
+}
+
+.foodOne {
+  top: 25%;
+  left: 7%;
+  animation: foodFloat 4s ease-in-out infinite;
+}
+
+.foodTwo {
+  top: 12%;
+  right: 15%;
+  animation: foodFloat 5s 0.5s ease-in-out infinite;
+}
+
+.foodThree {
+  top: 35%;
+  right: 5%;
+  animation: foodFloat 3s 0.7s ease-in-out infinite;
+}
+
+.foodFour {
+  bottom: 15%;
+  left: 13%;
+  animation: foodFloat 4.5s 0.4s ease-in-out infinite;
+}
+
+.tasteLabel {
+  position: absolute;
+  top: 12%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ff6a22;
+  transform: rotate(-8deg);
+  animation: labelFloat 4s ease-in-out infinite;
+}
+
+.tasteLabel span {
+  font-size: 35px;
+}
+
+.tasteLabel b {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-style: italic;
+}
+
+/* YON TOMON NUQTALARI */
+
+.heroDots {
+  position: absolute;
+  right: 0;
+  top: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heroDots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #383838;
+  transition: all 0.3s ease;
+}
+
+.heroDots span:first-child,
+.heroDots span:hover {
+  background: #ff5717;
+  box-shadow: 0 0 15px #ff571788;
+  transform: scale(1.2);
+}
+
+/* KARTOCHKALAR */
+
+.homeCards {
+  width: 88%;
+  max-width: 1350px;
+  margin: 35px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.featureCard {
+  min-height: 225px;
+  padding: 25px 27px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(140deg, #151515, #0d0d0d);
+  border: 1px solid #ffffff15;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px #0003;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  animation: cardEnter 0.8s ease both;
+}
+
+.featureCard:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.featureCard:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.featureCard::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: -100px;
+  right: -70px;
+  background: #ff4b1218;
+  filter: blur(30px);
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-9px);
+  border-color: #ff5a2466;
+  box-shadow: 0 20px 45px #0006, 0 0 25px #ff4b1210;
+}
+
+.featureCard:hover::before {
+  transform: scale(2);
+}
+
+.featureIcon {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ff7c20, #e83908);
+  box-shadow: 0 5px 25px #ff4b1240;
+  font-size: 28px;
+  transition: transform 0.4s ease;
+}
+
+.featureCard:hover .featureIcon {
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.featureWatermark {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 75px;
+  opacity: 0.035;
+  transition: transform 0.5s ease;
+}
+
+.featureCard:hover .featureWatermark {
+  transform: rotate(15deg) scale(1.2);
+}
+
+.featureCard h3 {
+  margin-bottom: 9px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  position: relative;
+}
+
+.featureCard p {
+  max-width: 280px;
+  color: #bcbcbc;
+  font-size: 14px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.featureCard > a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ff6424;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.featureCard > a:hover {
+  transform: translateX(7px);
+}
+
+/* FOOTER */
+
+.homeFooter {
+  padding: 30px 15px 35px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.footerBrand {
+  color: #ff6a24;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.footerBrand span {
+  padding: 0 8px;
+  color: #ff4b12;
+}
+
+.homeFooter p {
+  margin-top: 12px;
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+/* ANIMATSIYALAR */
+
+@keyframes headerShow {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes imageEnter {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes burgerFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+@keyframes circlePulse {
+  from {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes foodFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(10deg);
+  }
+}
+
+@keyframes labelFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-3deg);
+  }
+}
+
+@keyframes backgroundMove {
+  from {
+    opacity: 0.4;
+    transform: translateX(-2%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(2%);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PLANSHEТ VA KICHIK EKRANLAR */
+
+@media (max-width: 1050px) {
+  .homeHeader {
+    padding: 14px 20px;
+    gap: 15px;
+  }
+
+  .homeLogo {
+    font-size: 22px;
+  }
+
+  .homeNav {
+    gap: 18px;
+  }
+
+  .homePage main {
+    padding-top: 45px;
+  }
+
+  .hero {
+    padding-left: 25px;
+    padding-right: 20px;
+  }
+
+  .heroText h1 {
+    font-size: 52px;
+    letter-spacing: -2px;
+  }
+
+  .homeImage {
+    min-height: 390px;
+  }
+
+  .homeImage img {
+    height: 360px;
+  }
+
+  .homeCards {
+    width: 92%;
+    gap: 15px;
+  }
+
+  .featureCard {
+    padding: 22px 18px;
+  }
+
+  .featureCard h3 {
+    font-size: 17px;
+  }
+}
+
+/* TELEFON */
+
+@media (max-width: 750px) {
+  .homeHeader {
+    width: 96%;
+    padding: 13px 15px;
+    border-radius: 0 0 18px 18px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .homeLogo {
+    font-size: 21px;
+    gap: 8px;
+  }
+
+  .homeLogo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .homeCart {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+
+  .homeNav {
+    width: 100%;
+    order: 3;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid #ffffff10;
+    padding-top: 10px;
+  }
+
+  .homeNav a {
+    font-size: 12px;
+  }
+
+  .homePage main {
+    padding-top: 25px;
+  }
+
+  .hero {
+    width: 100%;
+    flex-direction: column;
+    padding: 35px 22px 20px;
+    gap: 10px;
+  }
+
+  .heroText {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .smallText {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+
+  .heroText h1 {
+    align-items: center;
+    font-size: clamp(39px, 10vw, 60px);
+    letter-spacing: -2px;
+  }
+
+  .heroText h2 {
+    margin-top: 17px;
+    font-size: 21px;
+  }
+
+  .heroText > p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .heroButton {
+    padding: 14px 22px;
+    font-size: 14px;
+  }
+
+  .homeCustomers {
+    justify-content: center;
+    margin-top: 23px;
+  }
+
+  .homeImage {
+    width: 100%;
+    min-height: 320px;
+    height: 320px;
+  }
+
+  .homeImage img {
+    width: min(100%, 370px);
+    height: 310px;
+  }
+
+  .burgerCircle {
+    width: min(72%, 270px);
+  }
+
+  .burgerRing {
+    width: min(85%, 310px);
+  }
+
+  .tasteLabel {
+    right: 3%;
+    top: 5%;
+  }
+
+  .tasteLabel b {
+    font-size: 19px;
+  }
+
+  .tasteLabel span {
+    font-size: 25px;
+  }
+
+  .floatingFood {
+    font-size: 25px;
+  }
+
+  .heroDots {
+    display: none;
+  }
+
+  .homeCards {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .featureCard {
+    min-height: 195px;
+    padding: 22px;
+  }
+
+  .featureCard h3 {
+    font-size: 19px;
+  }
+
+  .featureCard p {
+    font-size: 14px;
+  }
+
+  .homeFooter {
+    padding: 28px 15px;
+  }
+}
+
+/* KICHIK TELEFON */
+
+@media (max-width: 380px) {
+  .homeLogo {
+    font-size: 18px;
+  }
+
+  .homeCart {
+    padding: 8px 10px;
+  }
+
+  .homeNav a {
+    font-size: 11px;
+  }
+
+  .homePage main {
+    padding-top: 20px;
+  }
+
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .heroText h1 {
+    font-size: 37px;
+  }
+
+  .heroText h2 {
+    font-size: 18px;
+  }
+
+  .homeImage {
+    min-height: 270px;
+    height: 270px;
+  }
+
+  .homeImage img {
+    height: 260px;
+  }
+}
+
+/* HARAKATNI KAMAYTIRISH */
+
+@media (prefers-reduced-motion: reduce) {
+  .homePage *,
+  .homePage *::before,
+  .homePage *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,98 @@
+.aboutPage {
+  width: 1100px;
+  max-width: 95%;
+  margin: 70px auto;
+}
+
+.aboutBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 45px;
+  background: #1d1d1d;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px #0007;
+}
+
+.aboutText {
+  flex: 1;
+}
+
+.aboutText h1 {
+  color: white;
+  font-size: 42px;
+}
+
+.aboutText h1 span {
+  color: #ff3b00;
+}
+
+.aboutText h2 {
+  color: white;
+  margin: 18px 0;
+}
+
+.aboutText > p {
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.aboutInfo {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.aboutInfo div {
+  flex: 1;
+  padding: 15px;
+  background: #292929;
+  border-radius: 12px;
+}
+
+.aboutInfo h3 {
+  color: white;
+  margin-bottom: 7px;
+}
+
+.aboutInfo p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.aboutTime {
+  color: white;
+}
+
+.aboutImage {
+  flex: 1;
+  text-align: center;
+}
+
+.aboutImage img {
+  width: 100%;
+  max-width: 430px;
+  object-fit: contain;
+  transition: .3s;
+}
+
+.aboutImage img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 750px) {
+  .aboutBox {
+    flex-direction: column;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .aboutInfo {
+    flex-direction: column;
+  }
+
+  .aboutImage img {
+    max-width: 300px;
+  }
+}

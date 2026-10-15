@@ -1,0 +1,552 @@
+/* ================================
+   SAVAT MODAL
+================================ */
+
+.savatModal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+
+  z-index: 3000;
+
+  animation: modalFade 0.25s ease;
+}
+
+
+/* ================================
+   MODAL ANIMATION
+================================ */
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ================================
+   SAVAT BOX
+================================ */
+
+.savatBox {
+  width: 520px;
+  max-width: 100%;
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  background: #181818;
+
+  border: 1px solid #333;
+
+  border-radius: 24px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(255, 59, 0, 0.08);
+
+  animation: cartShow 0.3s ease;
+}
+
+
+@keyframes cartShow {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.savatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+
+  border-bottom: 1px solid #333;
+}
+
+
+.savatHeader h2 {
+  color: white;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+/* ================================
+   CLOSE BUTTON
+================================ */
+
+.savatClose {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #292929;
+
+  color: white;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+}
+
+
+.savatClose:hover {
+  background: #ff3b00;
+
+  transform: rotate(90deg) scale(1.08);
+
+  box-shadow: 0 0 20px rgba(255, 59, 0, 0.4);
+}
+
+
+/* ================================
+   EMPTY CART
+================================ */
+
+.savatEmpty {
+  text-align: center;
+
+  padding: 45px 20px;
+}
+
+
+.emptyIcon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #252525;
+
+  font-size: 38px;
+
+  box-shadow: 0 0 25px rgba(255, 59, 0, 0.08);
+}
+
+
+.savatEmpty h3 {
+  color: white;
+
+  font-size: 22px;
+
+  margin-bottom: 8px;
+}
+
+
+.savatEmpty p {
+  color: #888;
+
+  font-size: 14px;
+
+  margin-bottom: 25px;
+}
+
+
+/* ================================
+   CONTINUE BUTTON
+================================ */
+
+.continueButton {
+  border: none;
+
+  background: #ff3b00;
+
+  color: white;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.continueButton:hover {
+  background: #ff4d19;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(255, 59, 0, 0.3);
+}
+
+
+/* ================================
+   PRODUCTS
+================================ */
+
+.savatProducts {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+
+/* ================================
+   PRODUCT ITEM
+================================ */
+
+.savatItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 13px;
+
+  background: #222;
+
+  border: 1px solid #303030;
+
+  border-radius: 15px;
+
+  transition: 0.3s;
+}
+
+
+.savatItem:hover {
+  border-color: #ff3b00;
+
+  background: #252525;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ================================
+   PRODUCT IMAGE
+================================ */
+
+.savatItem img {
+  width: 78px;
+  height: 78px;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  background: #fff;
+
+  border-radius: 13px;
+
+  padding: 5px;
+
+  transition: 0.3s;
+}
+
+
+.savatItem:hover img {
+  transform: scale(1.05);
+}
+
+
+/* ================================
+   PRODUCT INFO
+================================ */
+
+.savatItemInfo {
+  flex: 1;
+}
+
+
+.savatItemInfo h3 {
+  color: white;
+
+  font-size: 17px;
+
+  margin-bottom: 7px;
+}
+
+
+.savatItemInfo p {
+  color: #ff3b00;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  margin-bottom: 9px;
+}
+
+
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.deleteButton {
+  border: 1px solid #444;
+
+  background: #292929;
+
+  color: #bbb;
+
+  padding: 7px 11px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+.deleteButton:hover {
+  background: #ff3b00;
+
+  border-color: #ff3b00;
+
+  color: white;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.savatFooter {
+  margin-top: 20px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #333;
+}
+
+
+/* ================================
+   TOTAL
+================================ */
+
+.total {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+
+.total span {
+  color: #aaa;
+
+  font-size: 17px;
+}
+
+
+.total strong {
+  color: white;
+
+  font-size: 22px;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.savatButtons {
+  display: flex;
+
+  gap: 10px;
+}
+
+
+.clearButton,
+.orderButton {
+  flex: 1;
+
+  padding: 13px 15px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+
+/* CLEAR */
+
+.clearButton {
+  border: 1px solid #444;
+
+  background: #292929;
+
+  color: #ddd;
+}
+
+
+.clearButton:hover {
+  background: #333;
+
+  border-color: #666;
+
+  transform: translateY(-2px);
+}
+
+
+/* ORDER */
+
+.orderButton {
+  border: none;
+
+  background: linear-gradient(
+    135deg,
+    #ff3b00,
+    #ff5a1f
+  );
+
+  color: white;
+
+  box-shadow:
+    0 6px 20px rgba(255, 59, 0, 0.2);
+}
+
+
+.orderButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(255, 59, 0, 0.35);
+}
+
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+.savatBox::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.savatBox::-webkit-scrollbar-track {
+  background: #1b1b1b;
+}
+
+
+.savatBox::-webkit-scrollbar-thumb {
+  background: #444;
+
+  border-radius: 10px;
+}
+
+
+.savatBox::-webkit-scrollbar-thumb:hover {
+  background: #ff3b00;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .savatModal {
+    padding: 12px;
+  }
+
+  .savatBox {
+    width: 100%;
+
+    max-height: 90vh;
+
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+  .savatHeader h2 {
+    font-size: 21px;
+  }
+
+  .savatItem {
+    padding: 10px;
+
+    gap: 10px;
+  }
+
+  .savatItem img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .savatItemInfo h3 {
+    font-size: 15px;
+  }
+
+  .savatItemInfo p {
+    font-size: 14px;
+  }
+
+  .savatButtons {
+    flex-direction: column;
+  }
+
+  .total strong {
+    font-size: 19px;
+  }
+}

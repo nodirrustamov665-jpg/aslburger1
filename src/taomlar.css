@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.taomlar {
+  width: 100%;
+  min-height: 100vh;
+  padding: 130px 35px 70px;
+  background: #000000 !important;
+  color: #fff;
+  overflow: hidden;
+  animation: pageIn 0.7s ease;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SARLAVHA */
+
+.taomlar .title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 900;
+  margin-bottom: 35px;
+  color: #fff;
+  text-shadow: 0 0 18px #ff450040;
+}
+
+.taomlar .title::after {
+  content: "";
+  display: block;
+  width: 85px;
+  height: 4px;
+  background: #ff4500;
+  border-radius: 10px;
+  margin: 12px auto 0;
+  box-shadow: 0 0 15px #ff4500;
+  animation: lineGlow 1.5s infinite alternate;
+}
+
+@keyframes lineGlow {
+  from {
+    width: 60px;
+    box-shadow: 0 0 5px #ff4500;
+  }
+  to {
+    width: 130px;
+    box-shadow: 0 0 20px #ff4500;
+  }
+}
+
+/* QIDIRUV */
+
+.taomlar > input {
+  display: block;
+  width: 450px;
+  max-width: 100%;
+  height: 52px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  background: #000 !important;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 30px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.35s;
+}
+
+.taomlar > input::placeholder {
+  color: #888;
+}
+
+.taomlar > input:focus {
+  background: #000 !important;
+  border-color: #ff4500;
+  box-shadow: 0 0 12px #ff450060, 0 0 25px #ff450020;
+}
+
+/* TAOMLAR GRID */
+
+.food-boxes {
+  width: 100%;
+  max-width: 1350px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* KARTALAR */
+
+.food-card {
+  position: relative;
+  min-width: 0;
+  padding: 14px;
+  text-align: center;
+  background: #000000 !important;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  animation: cardEnter 0.65s both;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.food-card:nth-child(1) { animation-delay: 0.05s; }
+.food-card:nth-child(2) { animation-delay: 0.12s; }
+.food-card:nth-child(3) { animation-delay: 0.19s; }
+.food-card:nth-child(4) { animation-delay: 0.26s; }
+.food-card:nth-child(5) { animation-delay: 0.33s; }
+.food-card:nth-child(6) { animation-delay: 0.40s; }
+.food-card:nth-child(7) { animation-delay: 0.47s; }
+.food-card:nth-child(8) { animation-delay: 0.54s; }
+.food-card:nth-child(9) { animation-delay: 0.61s; }
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* KARTA USTIGA BORGANDA */
+
+.food-card:hover {
+  background: #000000 !important;
+  transform: translateY(-9px) scale(1.02);
+  border-color: #ff4500;
+  box-shadow:
+    0 12px 30px #000,
+    0 0 14px #ff450050,
+    inset 0 0 18px #ff450008;
+}
+
+.food-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    #ff450014,
+    transparent
+  );
+  pointer-events: none;
+  transition: left 0.7s ease;
+}
+
+.food-card:hover::before {
+  left: 140%;
+}
+
+/* TAOM RASMI */
+
+.food-card img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #000000 !important;
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 5px 8px #000);
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.food-card:hover img {
+  background: #000000 !important;
+  transform: scale(1.07);
+  filter: drop-shadow(0 0 10px #ff450040);
+}
+
+/* TAOM NOMI */
+
+.food-card h3 {
+  color: #fff;
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 9px;
+  transition: color 0.3s;
+}
+
+.food-card:hover h3 {
+  color: #ff642e;
+}
+
+/* NARX */
+
+.food-card p {
+  color: #ff4500;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.food-card:hover p {
+  color: #ff8a00;
+  text-shadow: 0 0 12px #ff450050;
+}
+
+/* SAVAT TUGMASI */
+
+.food-card button {
+  position: relative;
+  width: 100%;
+  min-height: 44px;
+  padding: 12px 10px;
+  border: 1px solid #ff4500;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #ff3500, #ff5900);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s,
+    background 0.3s;
+}
+
+.food-card button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffffff50,
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.food-card button:hover {
+  background: linear-gradient(100deg, #ff5900, #ff3500);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px #ff450070;
+}
+
+.food-card button:hover::before {
+  left: 140%;
+}
+
+.food-card button:active {
+  transform: scale(0.96);
+}
+
+/* TOPILMAGAN TAOM */
+
+.notFound {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+  margin-top: 30px;
+  animation: pageIn 0.4s ease;
+}
+
+/* PLANSHet */
+
+@media (max-width: 900px) {
+  .food-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .taomlar {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+  .taomlar {
+    padding: 120px 12px 45px;
+  }
+
+  .taomlar .title {
+    font-size: 28px;
+  }
+
+  .taomlar > input {
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .food-boxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .food-card {
+    padding: 8px;
+    border-radius: 13px;
+  }
+
+  .food-card img {
+    height: 145px;
+  }
+
+  .food-card h3 {
+    font-size: 15px;
+  }
+
+  .food-card p {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .food-card button {
+    min-height: 38px;
+    padding: 9px 4px;
+    font-size: 11px;
+  }
+}
+
+/* ANIMATSIYANI KAMAYTIRISH SOZLAMASI */
+
+@media (prefers-reduced-motion: reduce) {
+  .taomlar *,
+  .taomlar *::before,
+  .taomlar *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

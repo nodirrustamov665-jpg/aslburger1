@@ -1,0 +1,683 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.68),
+      rgba(0, 0, 0, 0.72)
+    ),
+    url("/burger-bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 1100px;
+  max-width: 95%;
+
+  height: 75px;
+
+  position: fixed;
+
+  top: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(30, 30, 30, 0.94);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(12px);
+
+  z-index: 1000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 18px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.navbar > a:first-child {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  padding: 0;
+
+  background: #ff3b00;
+
+  border-radius: 10px;
+
+  flex-shrink: 0;
+}
+
+.navbar > a:first-child:hover {
+  background: #ff4d16;
+
+  transform: none;
+}
+
+.navbar img {
+  width: 48px;
+  height: 48px;
+
+  object-fit: contain;
+
+  border-radius: 50%;
+}
+
+/* =========================
+   LOGO TEXT
+========================= */
+
+.navbar h1 {
+  color: white;
+
+  font-size: 23px;
+
+  font-weight: 800;
+
+  margin-right: auto;
+
+  white-space: nowrap;
+}
+
+.navbar h1 span {
+  color: #ff3b00;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.navbar a {
+  color: #eeeeee;
+
+  text-decoration: none;
+
+  padding: 11px 13px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: all 0.25s ease;
+}
+
+.navbar a:hover {
+  color: white;
+
+  background: #ff3b00;
+
+  transform: translateY(-2px);
+}
+
+.navbar a.active {
+  color: white;
+
+  background: #ff3b00;
+
+  box-shadow:
+    0 5px 15px rgba(255, 59, 0, 0.25);
+}
+
+/* =========================
+   CART BUTTON
+========================= */
+
+.cartButton {
+  border: none;
+
+  background: #ff3b00;
+
+  color: white;
+
+  padding: 11px 15px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 5px 15px rgba(255, 59, 0, 0.2);
+}
+
+.cartButton:hover {
+  background: #ff521c;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(255, 59, 0, 0.35);
+}
+
+.cartButton:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   CART MODAL
+========================= */
+
+.savatModal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 2000;
+
+  backdrop-filter: blur(5px);
+}
+
+/* =========================
+   CART BOX
+========================= */
+
+.savatBox {
+  width: 500px;
+
+  max-width: 95%;
+
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  color: #222;
+
+  border-radius: 20px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.7);
+
+  animation: cartOpen 0.25s ease;
+}
+
+@keyframes cartOpen {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================
+   CART HEADER
+========================= */
+
+.savatHeader {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.savatHeader h2 {
+  color: #222;
+
+  font-size: 24px;
+}
+
+.savatClose {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #222;
+
+  color: white;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.savatClose:hover {
+  background: #ff3b00;
+
+  transform: rotate(90deg);
+}
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.savatEmpty {
+  text-align: center;
+
+  padding: 40px 20px;
+}
+
+.emptyIcon {
+  font-size: 50px;
+
+  margin-bottom: 15px;
+}
+
+.savatEmpty h3 {
+  font-size: 21px;
+
+  margin-bottom: 8px;
+
+  color: #222;
+}
+
+.savatEmpty p {
+  color: #888;
+
+  font-size: 15px;
+}
+
+/* =========================
+   CART PRODUCTS
+========================= */
+
+.savatProducts {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.savatItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 12px;
+
+  background: #f4f4f4;
+
+  border-radius: 14px;
+
+  transition: 0.25s;
+}
+
+.savatItem:hover {
+  background: #eeeeee;
+
+  transform: translateX(3px);
+}
+
+.savatItem img {
+  width: 75px;
+  height: 75px;
+
+  object-fit: contain;
+
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 5px;
+
+  flex-shrink: 0;
+}
+
+.savatItemInfo {
+  flex: 1;
+}
+
+.savatItemInfo h3 {
+  color: #222;
+
+  font-size: 17px;
+
+  margin-bottom: 5px;
+}
+
+.savatItemInfo p {
+  color: #ff3b00;
+
+  font-weight: bold;
+
+  margin-bottom: 7px;
+}
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.deleteButton {
+  border: none;
+
+  background: #222;
+
+  color: white;
+
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.deleteButton:hover {
+  background: #ff3b00;
+}
+
+/* =========================
+   CART FOOTER
+========================= */
+
+.savatFooter {
+  margin-top: 20px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.total {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.total span {
+  font-size: 18px;
+
+  color: #555;
+}
+
+.total strong {
+  color: #ff3b00;
+
+  font-size: 21px;
+}
+
+/* =========================
+   CART BUTTONS
+========================= */
+
+.savatButtons {
+  display: flex;
+
+  gap: 10px;
+}
+
+.clearButton,
+.orderButton {
+  flex: 1;
+
+  border: none;
+
+  padding: 13px;
+
+  border-radius: 10px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.clearButton {
+  background: #eeeeee;
+
+  color: #333;
+}
+
+.clearButton:hover {
+  background: #dddddd;
+}
+
+.orderButton {
+  background: #ff3b00;
+
+  color: white;
+}
+
+.orderButton:hover {
+  background: #e83200;
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.savatBox::-webkit-scrollbar {
+  width: 7px;
+}
+
+.savatBox::-webkit-scrollbar-track {
+  background: #eeeeee;
+
+  border-radius: 10px;
+}
+
+.savatBox::-webkit-scrollbar-thumb {
+  background: #ff3b00;
+
+  border-radius: 10px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .header {
+    width: 95%;
+  }
+
+  .navbar {
+    gap: 6px;
+
+    padding: 0 12px;
+  }
+
+  .navbar a {
+    padding: 10px 8px;
+
+    font-size: 13px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .cartButton {
+    padding: 10px 11px;
+
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .header {
+    height: auto;
+
+    top: 10px;
+
+    border-radius: 15px;
+  }
+
+  .navbar {
+    min-height: 70px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    padding: 10px;
+  }
+
+  .navbar > a:first-child {
+    width: 48px;
+    height: 48px;
+  }
+
+  .navbar img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .navbar h1 {
+    font-size: 19px;
+
+    margin-right: 0;
+  }
+
+  .navbar a {
+    font-size: 12px;
+
+    padding: 8px 9px;
+  }
+
+  .cartButton {
+    font-size: 12px;
+
+    padding: 9px 10px;
+  }
+
+  .savatBox {
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 17px;
+  }
+
+  .savatItem img {
+    width: 60px;
+
+    height: 60px;
+  }
+
+  .savatButtons {
+    flex-direction: column;
+  }
+}
+@media (max-width: 450px) {
+  .navbar h1 {
+    width: 100%;
+
+    text-align: center;
+
+    order: 2;
+  }
+
+  .navbar > a:first-child {
+    order: 1;
+  }
+
+  .navbar > a:not(:first-child) {
+    order: 3;
+  }
+
+  .navbar .cartButton {
+    order: 4;
+  }
+
+  .savatHeader h2 {
+    font-size: 20px;
+  }
+
+  .savatItemInfo h3 {
+    font-size: 15px;
+  }
+}
